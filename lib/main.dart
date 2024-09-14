@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:technical_challenge/assets/task_list_page/task_provider.dart';
+import 'pages/tip_calculator_page.dart';
+import 'pages/task_list_page.dart';
+import 'pages/consumo_api.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (_) => TaskProvider()), // Proveedor para TaskProvider
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,33 +23,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Technical Challenge', // Título de la aplicación.
+      debugShowCheckedModeBanner: false, // Oculta la etiqueta de debug.
       theme: ThemeData(
-       
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 0, 109, 168), //Color principal.
+          primary: const Color.fromARGB(
+              212, 0, 56, 168), // Color primario personalizado.
+          secondary: const Color(0xFFFF0000), // Color secundario personalizado.
+        ),
+        useMaterial3: true, // Utiliza el estilo de Material Design 3.
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:
+          const HomePage(), // Se establece la HomePage como la página de inicio.
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
- 
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() =>
+      _HomePageState(); // Se crea el estado asociado a HomePage.
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _HomePageState extends State<HomePage> {
+  int _currentIndex =
+      0; // Índice actual para controlar la página seleccionada en el BottomNavigationBar.
+  final List<Widget> _pages = [
+    const TipCalculatorPage(), // Página de la calculadora de propinas.
+    const TaskListPage(), // Página de la lista de tareas.
+    const ApiPage(), // Página que consume la API.
+  ];
 
-  void _incrementCounter() {
+  // Método para actualizar el índice cuando se selecciona una nueva pestaña en el BottomNavigationBar.
+  void _onTabTapped(int index) {
     setState(() {
-      _counter++;
+      _currentIndex = index; // Actualiza el índice y redibuja la interfaz.
     });
   }
 
@@ -44,32 +68,63 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-     
-        title: Text(widget.title),
-      ),
-      body: Center(
-      
-        child: Column(
-          
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        backgroundColor: Theme.of(context)
+            .colorScheme
+            .primary, // Establece el color de fondo del AppBar.
+        leading: Padding(
+          padding: const EdgeInsets.only(
+              left: 10.0,
+              top: 3.0,
+              bottom: 3.0), // Se añade padding a la imagen.
+          child: Image.asset(
+            'lib/images/logo_sgq.png', // Ruta de la imagen para el logo.
+          ),
+        ),
+        title: const Text(
+          'Technical Challenge', // Título del AppBar.
+          style: TextStyle(
+            color: Colors.white, // Estilo del texto en blanco.
+            fontWeight: FontWeight.bold, // Texto en negrita.
+            overflow: TextOverflow.ellipsis, // Trunca el texto si es muy largo.
+          ),
+          maxLines: 1, // Asegura que el texto ocupe solo una línea.
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+      body: AnimatedSwitcher(
+        duration: const Duration(
+            milliseconds:
+                300), // Duración de la animación al cambiar de página.
+        child:
+            _pages[_currentIndex], // Muestra la página seleccionada en _pages.
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex, // Índice actual del BottomNavigationBar.
+        onTap:
+            _onTabTapped, // Llama a _onTabTapped cuando se selecciona una pestaña.
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons
+                .monetization_on), // Ícono de la pestaña para la calculadora de propinas.
+            label:
+                'Propinas', // Etiqueta de la pestaña para la calculadora de propinas.
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task),
+            label: 'Tareas',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.art_track_sharp),
+            label: 'API',
+          ),
+        ],
+        selectedItemColor: Theme.of(context)
+            .colorScheme
+            .primary, // Color del ítem seleccionado.
+        unselectedItemColor: Theme.of(context)
+            .colorScheme
+            .onSurface
+            .withOpacity(0.6), // Color de los ítems no seleccionados.
+      ),
     );
   }
 }

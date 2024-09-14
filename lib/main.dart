@@ -7,10 +7,12 @@ import 'pages/consumo_api.dart';
 
 void main() {
   runApp(
+    //Se agrega para que este disponible provider en toda la aplicacion.
+    //MultiProvider es com un contenedor que guarda todos los estados de provider.
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (_) => TaskProvider()), // Proveedor para TaskProvider
+            create: (_) => TaskProvider()), //Taskprovider es el gestor de tareas y notifica cuando hay cambios..
       ],
       child: const MyApp(),
     ),

@@ -11,8 +11,8 @@ Esta captura muestra la pantalla de la calculadora de propinas cuando no se ha i
 
 
 <div align="center">
-  <img src="img_readme/act1.jpeg" alt="Calculadora de Propinas - Monto Ingresado" width="20%" />
-  <img src="img_readme/act1.2.jpeg" alt="Calculadora de Propinas - Monto No Ingresado" width="20%" />
+  <img src="img_readme/act1.jpeg" alt="Calculadora de Propinas - Monto Ingresado" width="20%" style="margin-right: 10px;" />
+  <img src="img_readme/act1.2.jpeg" alt="Calculadora de Propinas - Monto No Ingresado" width="20%" style="margin-left: 10px;" />
 </div>
 
 ---

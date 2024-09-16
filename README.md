@@ -28,7 +28,7 @@ Esta captura muestra la pantalla de la lista de tareas, donde las tareas "Dart" 
 
 ### 3. Integración con la API - Búsqueda y Visualización de Imágenes
 #### a. Carga de Resultados
-Muestra la pantalla de la integración de la API, donde se inicia una búsqueda para la palabra "cat". En este estado, la aplicación está cargando las imágenes desde la API y se muestran cuadros de carga en lugar de las imágenes.
+Muestra la pantalla de la integración de la API, donde se inicia una búsqueda para la palabra "cat". En este estado, la aplicación está cargando las imágenes desde la API y se muestran cuadros de carga en lo que cargan las imágenes.
 
 #### b. Resultados de la Búsqueda
 Muestra la pantalla con los resultados de la búsqueda una vez que las imágenes han sido cargadas correctamente desde la API. Se muestran varias imágenes de gatos con sus respectivos títulos.

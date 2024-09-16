@@ -10,8 +10,8 @@ Muestra la pantalla de la calculadora de propinas cuando no se ha ingresado ning
 
 
 <div align="center">
-  <img src="img_readme/act1.jpeg" alt="Calculadora de Propinas - Monto Ingresado" width="20%" style="margin-right: 10px;" />
-  <img src="img_readme/act1.2.jpeg" alt="Calculadora de Propinas - Monto No Ingresado" width="20%" style="margin-left: 10px;" />
+  <img src="img_readme/act1.jpeg" alt="Calculadora de Propinas - Monto Ingresado" width="25%" style="margin-right: 10px;" />
+  <img src="img_readme/act1.2.jpeg" alt="Calculadora de Propinas - Monto No Ingresado" width="25%" style="margin-left: 10px;" />
 </div>
 
 ---
@@ -19,3 +19,6 @@ Muestra la pantalla de la calculadora de propinas cuando no se ha ingresado ning
 ### 3. Lista de Tareas - Tareas Completadas y Pendientes
 Esta captura muestra la pantalla de la lista de tareas, donde las tareas "Dart" y "Flutter" están pendientes, mientras que las tareas "tip calculator page", "task list page" y "consumo api" están marcadas como completadas. Las tareas completadas se muestran tachadas y con un color verde, diferenciándose visualmente de las tareas pendientes.
 
+<div align="center">
+  <img src="img_readme/act2.jpeg" alt="Lista de Tareas - Tareas Completadas y Pendientes" width="25%" />
+</div>

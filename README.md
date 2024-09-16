@@ -1,10 +1,10 @@
-#Ejercicios
+# Ejercicios
 
 
 ## Personalización de la Aplicación
 
 ### Nombre Personalizado e Icono
-La aplicación ha sido personalizada con un nombre y un icono únicos. El nombre de la aplicación es "Technical_Challenge", como se muestra en la captura de pantalla, y el icono representa el logo de SGQ.
+La aplicación ha sido personalizada con un nombre y un icono únicos. El nombre de la aplicación es "Technical_Challenge", como se muestra en la captura de pantalla, y el icono representa el logo de SGQ (Sebastian Garcia Quijas).
 
 <div align="center">
   <img src="img_readme/icono.jpeg" alt="Nombre e Icono Personalizados" width="20%" />
